@@ -1,0 +1,30 @@
+.App {
+  align-items: center;
+  background-color: #282c34;
+  color: white;  
+  flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.App-header {
+  font-size: calc(10px + 2vmin);
+  padding: 30px;
+}
+
+.button {
+  background-color: white; /* Green */
+  border: none;
+  color: #282c34;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 3%;
+}
+
+.button:hover {
+  cursor: pointer;
+}

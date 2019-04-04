@@ -1,7 +1,7 @@
 .App {
   align-items: center;
   background-color: #282c34;
-  color: white;  
+  color: white;
   flex-direction: column;
   display: flex;
   min-height: 100vh;
@@ -27,4 +27,25 @@
 
 .button:hover {
   cursor: pointer;
+}
+
+.FlexContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.CenterFlexRow {
+  justify-content: center;
+}
+
+.FlexItem {
+  padding: 20px;
+}
+
+.winner {
+  color: green;
+}
+
+.loser {
+  color: red;
 }

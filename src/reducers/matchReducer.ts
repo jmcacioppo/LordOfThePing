@@ -6,10 +6,10 @@ export default function matchReducer(state: any[] = [], action: any) {
     case types.ADD_MATCH:
       return [...state, Object.assign({}, action.match)];
     case types.DELETE_MATCH:
-      return state.splice(
-        state.findIndex((match: MatchModel) => match.id === action.match.id),
-        1
+      const index = state.findIndex(
+        (match: MatchModel) => match.id === action.match.id
       );
+      return [...state.slice(0, index), ...state.slice(index + 1)];
     case types.LOAD_MATCHES:
       return action.matches;
     default:

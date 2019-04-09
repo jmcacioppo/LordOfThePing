@@ -18,14 +18,14 @@ class App extends Component<AppProps, AppState> {
     super(props);
 
     this.state = { viewForm: false };
+    this.addMatch.bind(this);
+    this.deleteMatch.bind(this);
     this.submitMatch.bind(this);
   }
 
   addMatch = () => this.setState({ viewForm: true });
 
-  deleteMatch = (match: MatchModel) => {
-    this.props.actions.deleteMatch(match);
-  };
+  deleteMatch = (match: MatchModel) => this.props.actions.deleteMatch(match);
 
   submitMatch = (match: MatchModel) => {
     this.props.actions.addMatch(match);
@@ -40,11 +40,13 @@ class App extends Component<AppProps, AppState> {
         <h3>
           Quarter {quarterNumber} - Week {weekNumber}
         </h3>
+
         <MatchList
           deleteMatch={this.deleteMatch}
           matches={this.props.matches}
         />
-        <button className="button" onClick={this.addMatch.bind(this)}>
+
+        <button className="button" onClick={this.addMatch}>
           Add Match
         </button>
 

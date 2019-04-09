@@ -1,12 +1,12 @@
-import './App.css';
-import * as addMatchActions from './actions/matchActions';
-import MatchList from './components/MatchList';
-import MatchForm from './components/MatchForm';
-import { MatchModel } from './data/matches';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { DateFunctions } from './utilities/dateFunctions';
+import "./App.css";
+import * as addMatchActions from "./actions/matchActions";
+import MatchList from "./components/MatchList";
+import MatchForm from "./components/MatchForm";
+import { MatchModel } from "./data/matches";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { DateFunctions } from "./utilities/dateFunctions";
 
 const date = new Date();
 const dateFunctions = new DateFunctions(date);
@@ -23,23 +23,42 @@ class App extends Component<AppProps, AppState> {
 
   addMatch = () => this.setState({ viewForm: true });
 
+  deleteMatch = (match: MatchModel) => {
+    this.props.actions.deleteMatch(match);
+  };
+
   submitMatch = (match: MatchModel) => {
     this.props.actions.addMatch(match);
     this.setState({ viewForm: false });
-  }
-  
+  };
+
   render() {
     return (
       <div className="App">
         <header className="App-header">Lord of the Ping</header>
 
-        <h3>Quarter {quarterNumber} - Week {weekNumber}</h3>        
-        <MatchList matches={this.props.matches}/>
-        <button className="button" onClick={this.addMatch.bind(this)}>Add Match</button>
+        <h3>
+          Quarter {quarterNumber} - Week {weekNumber}
+        </h3>
+        <MatchList
+          deleteMatch={this.deleteMatch}
+          matches={this.props.matches}
+        />
+        <button className="button" onClick={this.addMatch.bind(this)}>
+          Add Match
+        </button>
 
-        <br/>
+        <br />
 
-        { (this.state.viewForm) ? <MatchForm quarterNumber={quarterNumber} weekNumber={weekNumber} submitMatch={this.submitMatch} /> : '' }
+        {this.state.viewForm ? (
+          <MatchForm
+            quarterNumber={quarterNumber}
+            submitMatch={this.submitMatch}
+            weekNumber={weekNumber}
+          />
+        ) : (
+          ""
+        )}
       </div>
     );
   }
@@ -48,16 +67,19 @@ class App extends Component<AppProps, AppState> {
 function mapStateToProps(state: any, ownProps: any) {
   return {
     matches: state.matches
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch: any) {
   return {
     actions: bindActionCreators(addMatchActions, dispatch)
-  }
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
 
-type AppProps = { matches: MatchModel[], actions: any };
-type AppState = { viewForm: boolean }
+type AppProps = { matches: MatchModel[]; actions: any };
+type AppState = { viewForm: boolean };

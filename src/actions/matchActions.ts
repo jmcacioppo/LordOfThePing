@@ -1,13 +1,17 @@
-import * as types from './actionTypes'
+import * as types from "./actionTypes";
 import { MatchModel } from "../data/matches";
-import MatchAPI from '../api/matchApi';
+import MatchAPI from "../api/matchApi";
 
 export function addMatch(match: MatchModel) {
-  return { type: types.ADD_MATCH, match }
+  return { type: types.ADD_MATCH, match };
+}
+
+export function deleteMatch(match: MatchModel) {
+  return { type: types.DELETE_MATCH, match };
 }
 
 export function loadMatches(matches: MatchModel[]) {
-  return { type: types.LOAD_MATCHES, matches }
+  return { type: types.LOAD_MATCHES, matches };
 }
 
 export function getAllMatches(): any {
@@ -17,7 +21,7 @@ export function getAllMatches(): any {
         dispatch(loadMatches(matches));
       })
       .catch((error: any) => {
-        throw(error);
+        throw error;
       });
-  }
+  };
 }

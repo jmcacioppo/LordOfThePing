@@ -114,7 +114,7 @@ export default MatchForm;
 
 type MatchFormProps = {
   quarterNumber: number;
-  weekNumber: number;
   submitMatch: any;
+  weekNumber: number;
 };
 type MatchFormState = { match: MatchModel };

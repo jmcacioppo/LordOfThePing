@@ -1,9 +1,15 @@
-import * as types from '../actions/actionTypes'
+import * as types from "../actions/actionTypes";
+import { MatchModel } from "../data/matches";
 
 export default function matchReducer(state: any[] = [], action: any) {
-  switch(action.type) {
+  switch (action.type) {
     case types.ADD_MATCH:
       return [...state, Object.assign({}, action.match)];
+    case types.DELETE_MATCH:
+      return state.splice(
+        state.findIndex((match: MatchModel) => match.id === action.match.id),
+        1
+      );
     case types.LOAD_MATCHES:
       return action.matches;
     default:

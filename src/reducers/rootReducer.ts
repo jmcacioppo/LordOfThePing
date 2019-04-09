@@ -1,5 +1,5 @@
-import matches from './matchReducer'
-import { combineReducers } from 'redux';
+import matches from "./matchReducer";
+import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
   matches

@@ -15,10 +15,18 @@ const MatchList = (props: any) => {
   return (
     <div style={styles.MatchList}>
       {props.matches.map((match: MatchModel) => (
-        <Match key={`match-${match.id}`} match={match} />
+        <Match
+          handleDelete={handleDelete}
+          key={`match-${match.id}`}
+          match={match}
+        />
       ))}
     </div>
   );
+
+  function handleDelete(match: MatchModel) {
+    props.deleteMatch(match);
+  }
 };
 
 export default MatchList;

@@ -1,16 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = (props: any) => {
   return (
-    <nav>
-      <header className="App-header">Lord of the Ping</header>
+    <header>
+      <div className="App-header">Lord of the Ping</div>
 
-      <div className="NavItemsContainer FlexContainer">
-        <div className="FlexItem">Enter Game</div>
-        <div className="FlexItem">Leaderboard</div>
-        <div className="FlexItem">Something</div>
-      </div>
-    </nav>
+      <nav className="NavItemsContainer FlexContainer">
+        <div className="FlexItem">
+          <Link to="/">Enter Game</Link>
+        </div>
+        <div className="FlexItem">
+          <Link to="/leaderboard">Leaderboard</Link>
+        </div>
+        <div className="FlexItem">
+          <Link to="/something">Something</Link>
+        </div>
+      </nav>
+    </header>
   );
 };
 

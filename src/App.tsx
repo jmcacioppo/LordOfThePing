@@ -8,6 +8,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { DateFunctions } from "./utilities/dateFunctions";
 import Navbar from "./components/Navbar";
+import { BrowserRouter } from "react-router-dom";
+import Main from "./components/Main";
 
 const date = new Date();
 const dateFunctions = new DateFunctions(date);
@@ -35,34 +37,37 @@ class App extends Component<AppProps, AppState> {
 
   render() {
     return (
-      <div className="App">
-        <Navbar />
+      <BrowserRouter>
+        <div className="App">
+          <Navbar />
+          <Main />
 
-        <h3>
-          Quarter {quarterNumber} - Week {weekNumber}
-        </h3>
+          <h3>
+            Quarter {quarterNumber} - Week {weekNumber}
+          </h3>
 
-        <MatchList
-          deleteMatch={this.deleteMatch}
-          matches={this.props.matches}
-        />
-
-        <button className="button" onClick={this.addMatch}>
-          Add Match
-        </button>
-
-        <br />
-
-        {this.state.viewForm ? (
-          <MatchForm
-            quarterNumber={quarterNumber}
-            submitMatch={this.submitMatch}
-            weekNumber={weekNumber}
+          <MatchList
+            deleteMatch={this.deleteMatch}
+            matches={this.props.matches}
           />
-        ) : (
-          ""
-        )}
-      </div>
+
+          <button className="button" onClick={this.addMatch}>
+            Add Match
+          </button>
+
+          <br />
+
+          {this.state.viewForm ? (
+            <MatchForm
+              quarterNumber={quarterNumber}
+              submitMatch={this.submitMatch}
+              weekNumber={weekNumber}
+            />
+          ) : (
+            ""
+          )}
+        </div>
+      </BrowserRouter>
     );
   }
 }

@@ -1,20 +1,20 @@
-import App from './App';
-import './index.css';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import * as serviceWorker from './serviceWorker';
-import configureStore from './store/configureStore';
-import { getAllMatches } from './actions/matchActions';
+import App from "./App";
+import "./index.css";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import * as serviceWorker from "./serviceWorker";
+import configureStore from "./store/configureStore";
+import { getAllMatches } from "./actions/matchActions";
 
 const store = configureStore();
 store.dispatch(getAllMatches());
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
-  </Provider>, 
-  document.getElementById('root')
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

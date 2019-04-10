@@ -7,6 +7,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { DateFunctions } from "./utilities/dateFunctions";
+import Navbar from "./components/Navbar";
 
 const date = new Date();
 const dateFunctions = new DateFunctions(date);
@@ -35,7 +36,7 @@ class App extends Component<AppProps, AppState> {
   render() {
     return (
       <div className="App">
-        <header className="App-header">Lord of the Ping</header>
+        <Navbar />
 
         <h3>
           Quarter {quarterNumber} - Week {weekNumber}

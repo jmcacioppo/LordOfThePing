@@ -32,7 +32,7 @@ const Match = (props: any) => {
   return (
     <div style={styles.Match}>
       <PlayerNamesDisplay match={match} />
-      <p onClick={() => props.handleDelete(match)}>x</p>
+      <button onClick={() => props.handleDelete(match)}>x</button>
       <br /> <br />
       {match.games.map((game: GameModel) => {
         return (

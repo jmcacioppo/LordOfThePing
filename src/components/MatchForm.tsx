@@ -1,7 +1,16 @@
 import React, { Component } from "react";
+import * as addMatchActions from "../actions/matchActions";
 import { MatchModel, GameModel } from "../data/matches";
 import TextInput from "./common/TextInput";
 import { getDefaultMatch } from "../data/repository";
+import { DateFunctions } from "../utilities/dateFunctions";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+
+const date = new Date();
+const dateFunctions = new DateFunctions(date);
+const quarterNumber: number = dateFunctions.getQuarter();
+const weekNumber: number = dateFunctions.getWeekNumber();
 
 class MatchForm extends Component<MatchFormProps, MatchFormState> {
   constructor(props: any) {
@@ -30,7 +39,9 @@ class MatchForm extends Component<MatchFormProps, MatchFormState> {
     this.setState({ match });
   }
 
-  handleSubmit() {
+  handleSubmit(event: any) {
+    event.preventDefault();
+
     let player1Count = 0;
     let player2Count = 0;
 
@@ -48,12 +59,16 @@ class MatchForm extends Component<MatchFormProps, MatchFormState> {
       this.state.match.winner = this.state.match.player1;
     else this.state.match.winner = this.state.match.player2;
 
-    this.props.submitMatch(this.state.match);
+    this.props.actions.addMatch(this.state.match);
   }
 
   render() {
     return (
       <form>
+        <h3>
+          Quarter {quarterNumber} - Week {weekNumber}
+        </h3>
+
         <div className="FlexContainer">
           <div className="FlexItem">
             <TextInput
@@ -110,11 +125,28 @@ class MatchForm extends Component<MatchFormProps, MatchFormState> {
   }
 }
 
-export default MatchForm;
+function mapStateToProps(state: any, ownProps: any) {
+  return {
+    matches: state.matches
+  };
+}
+
+function mapDispatchToProps(dispatch: any) {
+  return {
+    actions: bindActionCreators(addMatchActions, dispatch)
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MatchForm);
 
 type MatchFormProps = {
+  actions: any;
   quarterNumber: number;
   submitMatch: any;
   weekNumber: number;
 };
+
 type MatchFormState = { match: MatchModel };

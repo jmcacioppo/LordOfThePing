@@ -21,13 +21,7 @@ class App extends Component<AppProps, AppState> {
       <BrowserRouter>
         <div className="App">
           <Navbar />
-
           <Main />
-
-          <MatchList
-            deleteMatch={this.deleteMatch.bind(this)}
-            matches={this.props.matches}
-          />
         </div>
       </BrowserRouter>
     );

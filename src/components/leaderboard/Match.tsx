@@ -1,4 +1,4 @@
-import { GameModel, MatchModel } from "../data/matches";
+import { GameModel, MatchModel } from "../../data/matches";
 import React from "react";
 
 const styles = {

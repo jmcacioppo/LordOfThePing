@@ -1,6 +1,6 @@
 import React from "react";
 import Match from "./Match";
-import { MatchModel } from "../data/matches";
+import { MatchModel } from "../../data/matches";
 
 const styles = {
   MatchList: {

@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import MatchForm from "./MatchForm";
-import Leaderboard from "./Leaderboard";
-import Something from "./Something";
+import MatchForm from "./match-form/MatchForm";
+import Leaderboard from "./leaderboard/Leaderboard";
+import Something from "./something/Something";
 
 const Main = () => (
   <main>

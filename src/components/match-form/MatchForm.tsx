@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import * as addMatchActions from "../actions/matchActions";
-import { MatchModel, GameModel } from "../data/matches";
-import TextInput from "./common/TextInput";
-import { getDefaultMatch } from "../data/repository";
-import { DateFunctions } from "../utilities/dateFunctions";
+import * as addMatchActions from "../../actions/matchActions";
+import { MatchModel, GameModel } from "../../data/matches";
+import TextInput from "../common/TextInput";
+import { getDefaultMatch } from "../../data/repository";
+import { DateFunctions } from "../../utilities/dateFunctions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 

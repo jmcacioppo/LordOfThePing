@@ -1,13 +1,12 @@
-import "./App.css";
-import * as addMatchActions from "./actions/matchActions";
-import MatchList from "./components/MatchList";
-import { MatchModel } from "./data/matches";
+import "./styles/App.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import Navbar from "./components/Navbar";
 import { BrowserRouter } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import * as addMatchActions from "./actions/matchActions";
+import Navbar from "./components/Navbar";
 import Main from "./components/Main";
+import { MatchModel } from "./data/matches";
 
 class App extends Component<AppProps, AppState> {
   constructor(props: any) {

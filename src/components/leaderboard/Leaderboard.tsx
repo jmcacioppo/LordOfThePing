@@ -1,9 +1,9 @@
 import React from "react";
-import * as addMatchActions from "../actions/matchActions";
+import * as addMatchActions from "../../actions/matchActions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import MatchList from "./MatchList";
-import { MatchModel } from "../data/matches";
+import { MatchModel } from "../../data/matches";
 
 const Leaderboard = (props: LeaderboardProps) => {
   const deleteMatch = (match: MatchModel) => props.actions.deleteMatch(match);

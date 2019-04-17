@@ -1,4 +1,6 @@
 import "./styles/App.css";
+import "./styles/Flexbox.css";
+import "./styles/Navbar.css";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter } from "react-router-dom";

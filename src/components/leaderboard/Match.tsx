@@ -1,16 +1,6 @@
+import "./Match.css";
 import { GameModel, MatchModel } from "../../data/matches";
 import React from "react";
-
-const styles = {
-  Match: {
-    flexGrow: 1,
-    padding: "10px"
-  },
-  GameScore: {
-    listStyleType: "none",
-    padding: "2px"
-  }
-};
 
 const PlayerNamesDisplay = (data: { match: MatchModel }) => {
   const match: MatchModel = data.match;
@@ -30,16 +20,13 @@ const Match = (props: any) => {
   const { match } = props;
 
   return (
-    <div style={styles.Match}>
+    <div className="Match">
       <PlayerNamesDisplay match={match} />
       <button onClick={() => props.handleDelete(match)}>x</button>
       <br /> <br />
       {match.games.map((game: GameModel) => {
         return (
-          <div
-            key={`match-${match.id}-game-${game.id}`}
-            style={styles.GameScore}
-          >
+          <div key={`match-${match.id}-game-${game.id}`} className="GameScore">
             Game {game.gameNumber}: {game.player1Score} - {game.player2Score}
           </div>
         );

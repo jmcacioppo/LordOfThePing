@@ -1,0 +1,13 @@
+.FlexContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.CenterFlexRow {
+  justify-content: center;
+}
+
+.FlexItem {
+  flex-grow: 1;
+  padding: 20px;
+}

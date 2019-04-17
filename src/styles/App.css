@@ -14,11 +14,6 @@
   padding: 10px;
 }
 
-.NavItemsContainer > div {
-  background-color: gray;
-  margin: 5px;
-}
-
 .button {
   background-color: white; /* Green */
   border: none;
@@ -34,20 +29,6 @@
 button:hover,
 .button:hover {
   cursor: pointer;
-}
-
-.FlexContainer {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.CenterFlexRow {
-  justify-content: center;
-}
-
-.FlexItem {
-  flex-grow: 1;
-  padding: 20px;
 }
 
 .winner {

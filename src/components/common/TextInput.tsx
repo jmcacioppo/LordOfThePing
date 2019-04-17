@@ -1,12 +1,5 @@
+import "./TextInput.css";
 import React from "react";
-
-const styles = {
-  TextInput: {
-    margin: "8px 0",
-    padding: "5px",
-    width: "100%"
-  }
-};
 
 const TextInput = (props: any) => {
   const { className, label, name, value, handleInputChange } = props;
@@ -15,7 +8,7 @@ const TextInput = (props: any) => {
       <label htmlFor={name}>{label}</label>
       <input
         type="text"
-        style={styles.TextInput}
+        className="TextInput"
         name={name}
         value={value}
         onChange={handleInputChange}
